@@ -5,13 +5,13 @@ class OrdinaryLeastSquares:
         self.coefficients_ = None
 
     @staticmethod
-    def __add_intercept(X):
+    def _add_intercept(X):
         # Add a column of ones to X for the intercept term
         return np.c_[np.ones(X.shape[0]), X]
 
     def fit(self, X, y):
         # Add intercept column
-        X = self.__add_intercept(np.array(X))
+        X = self._add_intercept(np.array(X))
         y = np.array(y)
 
         # Calculate the coefficients using OLS formula: (X.T X)^-1 X.T y
@@ -28,5 +28,5 @@ class OrdinaryLeastSquares:
         if self.coefficients_ is None:
             raise Exception("Model is not fitted.")
 
-        X = self.__add_intercept(np.array(X))
+        X = self._add_intercept(np.array(X))
         return X @ self.coefficients_

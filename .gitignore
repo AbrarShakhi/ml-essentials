@@ -2,4 +2,5 @@
 .*env
 datasets
 **.ipynb
+.ipynb_checkpoints
 **.zip
